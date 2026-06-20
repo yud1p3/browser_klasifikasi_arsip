@@ -120,7 +120,9 @@ function App() {
     searchOffsetRef.current = 0;
 
     try {
-      const filter = currentParentId ? `parent_id = ${currentParentId}` : '';
+      // Search across all descendants using kode prefix, not just direct children
+      const currentKode = currentPath.length > 0 ? currentPath[currentPath.length - 1].kode : null;
+      const filter = currentKode ? `kode STARTS WITH "${currentKode}"` : '';
       const result = await textSearch(query, {
         semanticRatio: ratio,
         filter,
@@ -139,7 +141,7 @@ function App() {
     } finally {
       setIsSearching(false);
     }
-  }, [isClientReady, textSearch, currentParentId]);
+  }, [isClientReady, textSearch, currentPath]);
 
   // Load more search results
   const loadMoreSearchResults = useCallback(async () => {
@@ -147,7 +149,9 @@ function App() {
     
     setIsSearching(true);
     try {
-      const filter = currentParentId ? `parent_id = ${currentParentId}` : '';
+      // Search across all descendants using kode prefix
+      const currentKode = currentPath.length > 0 ? currentPath[currentPath.length - 1].kode : null;
+      const filter = currentKode ? `kode STARTS WITH "${currentKode}"` : '';
       const result = await textSearch(debouncedQuery, {
         semanticRatio: semanticRatio,
         filter,
@@ -166,7 +170,7 @@ function App() {
     } finally {
       setIsSearching(false);
     }
-  }, [isClientReady, textSearch, searchHasMore, isSearching, debouncedQuery, semanticRatio, currentParentId]);
+  }, [isClientReady, textSearch, searchHasMore, isSearching, debouncedQuery, semanticRatio, currentPath]);
 
   // Infinite scroll for navigation (MUST be after loadMoreItems is defined)
   const { setSentinel } = useInfiniteScroll({
