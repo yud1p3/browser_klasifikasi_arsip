@@ -351,20 +351,38 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header - sticky with breadcrumb & search */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-        <div className="mx-auto max-w-6xl px-4 py-4">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-            <h1 className="text-2xl font-bold text-blue-900">
-              Browser Klasifikasi Arsip
-            </h1>
-            <div className="text-sm text-gray-500">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+        <div className="mx-auto max-w-6xl px-4 py-3">
+          {/* Logo & Institusi */}
+          <div className="flex items-center gap-3 mb-3">
+            <img
+              src="/lambang-blitar.webp"
+              alt="Lambang Kabupaten Blitar"
+              className="h-12 w-auto"
+            />
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wide leading-tight">
+                Pemerintah Kabupaten Blitar
+              </span>
+              <span className="text-base font-bold text-blue-900 leading-tight">
+                Dinas Perpustakaan dan Kearsipan
+              </span>
+            </div>
+            <div className="hidden sm:flex items-center ml-auto text-xs text-gray-400">
               {displayTotalHits > 0 && (
                 <>
-                  <span className="font-mono text-blue-600">{displayTotalHits.toLocaleString()}</span>{' '}
-                  klasifikasi
+                  <span className="font-mono text-blue-600 font-semibold">{displayTotalHits.toLocaleString()}</span>
+                  <span className="ml-1">klasifikasi</span>
                 </>
               )}
             </div>
+          </div>
+
+          {/* Judul Aplikasi */}
+          <div className="mb-3">
+            <h1 className="text-xl font-bold text-gray-800">
+              Browser Klasifikasi Arsip
+            </h1>
           </div>
 
           {/* Breadcrumb */}
