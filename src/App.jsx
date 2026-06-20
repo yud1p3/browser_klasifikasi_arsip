@@ -231,18 +231,14 @@ function App() {
     try {
       const parentDoc = await getDocument(parentId);
       if (parentDoc) {
-        // Build path by fetching ancestors up to root
+        // Build path by fetching ancestors up to root, including parentDoc once.
         const newPath = [];
         let current = parentDoc;
-        while (current && current.parent_id && current.parent_id !== '0') {
+        while (current) {
           newPath.unshift({ id: current.id, kode: current.kode, deskripsi: current.deskripsi });
+          if (!current.parent_id || current.parent_id === '0') break;
           current = await getDocument(current.parent_id);
         }
-        if (current) {
-          newPath.unshift({ id: current.id, kode: current.kode, deskripsi: current.deskripsi });
-        }
-        // Add the parent itself at the end
-        newPath.push({ id: parentDoc.id, kode: parentDoc.kode, deskripsi: parentDoc.deskripsi });
 
         setCurrentPath(newPath);
         setCurrentLevel(newPath.length + 1);
@@ -305,7 +301,7 @@ function App() {
   const breadcrumbItems = [
     { label: 'Home', query: '', disabled: false },
     ...currentPath.map((node, idx) => ({
-      label: node.kode,
+      label: node.deskripsi ? `${node.kode} - ${node.deskripsi}` : node.kode,
       query: `nav:${node.id}`,
       disabled: idx === currentPath.length - 1,
     })),
