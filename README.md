@@ -93,6 +93,32 @@ server {
 }
 ```
 
+## Data Sampel
+
+Folder `samples/` berisi contoh data CSV untuk diimport ke Meilisearch:
+
+| File | Deskripsi |
+|------|-----------|
+| `klasifikasi_pengadaan.csv` | 25 baris data klasifikasi kode **027 (PENGADAAN)** — mencakup 6 level hierarki |
+
+### Import ke Meilisearch
+
+```bash
+# Via curl
+curl -X POST 'http://localhost:7700/indexes/klasifikasi/documents' \
+  -H 'Content-Type: text/csv' \
+  -H 'Authorization: Bearer YOUR_API_KEY' \
+  --data-binary @samples/klasifikasi_pengadaan.csv
+```
+
+Atau via Meilisearch CLI:
+
+```bash
+meilisearch index documents --index klasifikasi samples/klasifikasi_pengadaan.csv --csv-delimiter ";"
+```
+
+> **Catatan:** File CSV menggunakan delimiter `;` (bukan koma) karena ada koma di dalam data.
+
 ## Struktur Proyek
 
 ```

@@ -1,0 +1,26 @@
+id;kode;deskripsi;klaster;parent_id;penyusutan_id;retensi_aktif;retensi_inaktif
+183874;027;PENGADAAN;1;0;0;2;8
+183876;027.01;Kebijakan: Pengembangan Strategi, Monitoring-evaluasi dan Pengembangan Sistem Informasi, Pengembangan dan Pembinaan Sumber Daya Manusia, Hukum dan Penyelesaian Sanggah;2;183874;2;2;3
+183880;027.01.01;Pengkajian dan pengusulan kebijakan;3;183876;2;2;3
+183884;027.01.02;Penyiapan Kebijakan;3;183876;2;2;3
+183888;027.01.03;Perumusan Kebijakan;3;183876;2;2;3
+183890;027.01.04;Norma Standar Prosedur Kriteria (NSPK);3;183876;2;2;3
+183891;027.01.05;Penetapan Kebijakan;3;183876;2;2;3
+183892;027.01.06;MOU;3;183876;2;2;3
+183893;027.02;PELAKSANAAN PENGADAAN;2;183874;1;2;8
+183894;027.02.01;Penyusunan rencana umum pengadaan;3;183893;1;2;8
+183895;027.02.01.01;Identifikasi dan Analisis Kebutuhan Barang/Jasa;4;183894;1;2;8
+183896;027.02.01.02;Penyusunan dan Penetapan Rencana Penganggaran Pengadaan;4;183894;1;2;8
+183897;027.02.01.03;Penetapan Kebijakan Umum;4;183894;1;2;8
+183899;027.02.01.04;Penyusunan Kerangka Acuan Kerja (KAK);4;183894;1;2;8
+183902;027.02.01.05;Pengumuman Rencana Umum Pengadaan;4;183894;1;2;8
+183904;027.02.02;Pemilihan Penyedia;3;183893;1;2;8
+183907;027.02.02.01;Persiapan Pemilihan Penyedia;4;183904;1;2;8
+183911;027.02.02.01.01;Kaji ulang pengadaan;5;183907;1;2;8
+183914;027.02.02.01.02;Menyusun dan Menetapkan spesifikasi teknis;5;183907;1;2;8
+183916;027.02.02.01.03;Menyusun dan menetapkan Harga Perkiraaan Sendiri (HPS);5;183907;1;2;8
+183919;027.02.02.01.04;Menetapkan rancangan kontrak;5;183907;1;2;8
+183922;027.02.02.01.05;Menyusun dokumen pengadaan;5;183907;1;2;8
+183925;027.02.02.02;Pelaksanaan Pemilihan Penyedia;4;183904;1;2;8
+183928;027.02.02.02.01;Pelelangan/Pemilihan/Seleksi;5;183925;1;2;8
+183937;027.02.02.02.01.01;Pengumuman;6;183928;1;2;8
